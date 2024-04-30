@@ -1,7 +1,7 @@
 Agent
 =====
 
-[![Latest Stable Version](http://img.shields.io/packagist/v/aradsolution/agent.svg)](https://packagist.org/packages/aradsolution/agent) [![Total Downloads](http://img.shields.io/packagist/dm/aradsolution/agent.svg)](https://packagist.org/packages/aradsolution/agent) [![Build Status](http://img.shields.io/travis/aradsolution/agent.svg)](https://travis-ci.org/aradsolution/agent) [![Coverage Status](http://img.shields.io/coveralls/aradsolution/agent.svg)](https://coveralls.io/r/aradsolution/agent)
+[![Latest Stable Version](http://img.shields.io/packagist/v/aradsolution/agent.svg)](https://packagist.org/packages/aradsolution/agent) [![Total Downloads](http://img.shields.io/packagist/dm/aradsolution/agent.svg)](https://packagist.org/packages/aradsolution/agent) [![Coverage Status](http://img.shields.io/coveralls/aradsolution/agent.svg)](https://coveralls.io/r/aradsolution/agent)
 
 A PHP desktop/mobile user agent parser with support for Laravel, based on [Mobile Detect](https://github.com/serbanghita/Mobile-Detect) with desktop support and additional functionality.
 
