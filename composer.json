@@ -1,27 +1,31 @@
 {
-    "name": "jenssegers/agent",
+    "name": "aradsolution/agent",
     "description": "Desktop/mobile user agent parser with support for Laravel, based on Mobiledetect",
     "keywords": ["laravel", "useragent", "agent", "user agent", "browser", "platform", "mobile", "desktop"],
-    "homepage": "https://github.com/jenssegers/agent",
+    "homepage": "https://github.com/aradsolution/agent",
     "license" : "MIT",
     "authors": [
         {
-            "name": "Jens Segers",
-            "homepage": "https://jenssegers.com"
+            "name": "Arad Solution",
+            "email": "info@aradsolution.com"
+        },
+        {
+            "name": "Vahid Farid",
+            "email": "vahidfarid@gmail.com"
         }
     ],
     "require": {
-        "php": ">=5.6",
-        "mobiledetect/mobiledetectlib": "^2.7.6",
+        "php": "^7.0|^8.0",
+        "mobiledetect/mobiledetectlib": "^4.8",
         "jaybizzle/crawler-detect": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0|^6.0|^7.0",
-        "php-coveralls/php-coveralls": "^2.1"
+        "phpunit/phpunit": "^7.0|^8.0",
+        "php-coveralls/php-coveralls": "^2.7"
     },
     "autoload": {
         "psr-4": {
-            "Jenssegers\\Agent\\": "src/"
+            "AradSolution\\Agent\\": "src/"
         }
     },
     "extra": {
@@ -30,10 +34,10 @@
         },
         "laravel": {
             "providers": [
-                "Jenssegers\\Agent\\AgentServiceProvider"
+                "AradSolution\\Agent\\AgentServiceProvider"
             ],
             "aliases": {
-                "Agent": "Jenssegers\\Agent\\Facades\\Agent"
+                "Agent": "AradSolution\\Agent\\Facades\\Agent"
             }
         }
     },
