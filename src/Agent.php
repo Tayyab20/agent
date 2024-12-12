@@ -6,7 +6,7 @@ use BadMethodCallException;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use Detection\MobileDetect;
 
-class Agent extends Mobile_Detect
+class Agent extends MobileDetect
 {
     /**
      * List of desktop devices.
