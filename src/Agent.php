@@ -81,6 +81,12 @@ class Agent extends MobileDetect
      */
     protected static $crawlerDetect;
 
+
+    protected function sanitizeUserAgent($userAgent): string
+    {
+        return is_string($userAgent) ? $userAgent : '';
+    }
+
     /**
      * Get all detection rules. These rules include the additional
      * platforms and browsers and utilities.
@@ -203,6 +209,7 @@ class Agent extends MobileDetect
      */
     protected function findDetectionRulesAgainstUA(array $rules, $userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         // Loop given rules
         foreach ($rules as $key => $regex) {
             if (empty($regex)) {
@@ -225,6 +232,7 @@ class Agent extends MobileDetect
      */
     public function browser($userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         return $this->findDetectionRulesAgainstUA(static::getBrowsers(), $userAgent);
     }
 
@@ -235,6 +243,7 @@ class Agent extends MobileDetect
      */
     public function platform($userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         return $this->findDetectionRulesAgainstUA(static::getPlatforms(), $userAgent);
     }
 
@@ -245,6 +254,7 @@ class Agent extends MobileDetect
      */
     public function device($userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         $rules = static::mergeRules(
             static::getDesktopDevices(),
             static::getPhoneDevices(),
@@ -262,6 +272,7 @@ class Agent extends MobileDetect
      */
     public function isDesktop($userAgent = null, $httpHeaders = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
         if ($this->getUserAgent() === 'Amazon CloudFront') {
             $cfHeaders = $this->getCfHeaders();
@@ -281,6 +292,7 @@ class Agent extends MobileDetect
      */
     public function isPhone($userAgent = null, $httpHeaders = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         return $this->isMobile($userAgent, $httpHeaders) && !$this->isTablet($userAgent, $httpHeaders);
     }
 
@@ -291,6 +303,7 @@ class Agent extends MobileDetect
      */
     public function robot($userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         if ($this->getCrawlerDetect()->isCrawler($userAgent ?: $this->userAgent)) {
             return ucfirst($this->getCrawlerDetect()->getMatches());
         }
@@ -305,6 +318,7 @@ class Agent extends MobileDetect
      */
     public function isRobot($userAgent = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         return $this->getCrawlerDetect()->isCrawler($userAgent ?: $this->userAgent);
     }
 
@@ -316,6 +330,7 @@ class Agent extends MobileDetect
      */
     public function deviceType($userAgent = null, $httpHeaders = null)
     {
+        $userAgent = $this->sanitizeUserAgent($userAgent);
         if ($this->isDesktop($userAgent, $httpHeaders)) {
             return "desktop";
         } elseif ($this->isPhone($userAgent, $httpHeaders)) {
