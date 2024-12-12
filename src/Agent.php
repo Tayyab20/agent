@@ -106,7 +106,7 @@ class Agent extends MobileDetect
         return $rules;
     }
 
-    public function getRules()
+    public function getRules(): array
     {
         if ($this->detectionType === static::DETECTION_TYPE_EXTENDED) {
             return static::getDetectionRulesExtended();
